@@ -2,15 +2,16 @@ import defaultTodos from "./utils/defaultTodos";
 import { v4 as uuidv4 } from 'uuid'
 import { Request, Response } from 'express';
 import express = require('express');
-// import * as express, { Request, Response } from "express";
+const cors = require('cors')
 
 
 let todos = defaultTodos; // array
 
 const app = express()
 
-
 app.use(express.json())
+app.use(cors())
+
 const port = 8080
 
 app.get('/api/v1/todos', (req: Request, res: Response) => {
@@ -30,12 +31,15 @@ app.post('/api/v1/todos', (req: Request, res: Response) => {
     res.end('Todo is created');
 })
 
-app.put('/api/v1/todos/:id', (req: Request, res: Response) => {
-    const id = req.params.id;
-    const todo = todos.find(todo => todo.id === id);
+app.put('/api/v1/todos/completed', (req: Request, res: Response) => {
+    todos = todos.filter(todo => !todo.done);
+    res.status(200).send();
+})
 
+app.patch('/api/v1/todos/:id', (req: Request, res: Response) => {
+    let id = req.params.id;
+    let todo = todos.find(todo => todo.id === id);
     if (todo) {
-        todo.title = req.body.title;
         todo.done = req.body.done;
     } else {
         res.status(404).send("No todos found!");
@@ -44,11 +48,6 @@ app.put('/api/v1/todos/:id', (req: Request, res: Response) => {
     res.end('Todo is updated');
 })
 
-app.delete('/api/v1/todos/:id', (req: Request, res: Response) => {
-    const id = req.params.id;
-    todos = todos.filter(todo => todo.id !== id)
-    res.end('Todo is deleted');
-})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
