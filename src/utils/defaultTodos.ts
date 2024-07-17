@@ -12,5 +12,17 @@ export const defaultTodos = [
     { id: id3, title: 'Todo 3', done: true },
 ];
 
+export const defaultTodosSecondVersion = [
+    { id: id1, title: 'Todo 1', done: true, type: 'usual' },
+    { id: id2, title: 'Todo 2', done: false, type: 'usual' },
+    { id: id3, title: 'Todo 3', done: true, type: 'usual' },
 
-export default defaultTodos;
+    { id: id1, title: 'Todo 1', done: false, type: 'clearOnly' },
+    { id: id2, title: 'Todo 2', done: false, type: 'clearOnly' },
+    { id: id3, title: 'Todo 3', done: false, type: 'clearOnly' },
+
+    { id: id1, title: 'Todo 1', done: false, type: 'archiveOnly' },
+    { id: id2, title: 'Todo 2', done: false, type: 'archiveOnly' },
+    { id: id3, title: 'Todo 3', done: false, type: 'archiveOnly' },
+
+];
