@@ -1,4 +1,4 @@
-import { defaultTodos, defaultTodosSecondVersion } from "./utils/defaultTodos";
+import { defaultTodosSecondVersion } from "./utils/defaultTodos";
 import { v4 as uuidv4 } from 'uuid'
 import { Request, Response } from 'express';
 import express = require('express');
@@ -60,7 +60,7 @@ app.patch('/api/v1/todos/archive-todo/:id', (req: Request, res: Response) => {
 
 app.patch('/api/v1/todos/:id', (req: Request, res: Response) => {
     let id = req.params.id;
-    let todo = todos.find(todo => todo.id === id && todo.type !== 'archiveOnly');
+    let todo = todos.find(todo => todo.id === id);
     if (todo) {
         todo.done = req.body.done;
     } else {
@@ -72,6 +72,6 @@ app.patch('/api/v1/todos/:id', (req: Request, res: Response) => {
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`App listening on port ${port}`)
 })
 

@@ -1,4 +1,4 @@
-// import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 const id1 = '63d53d4c-9533-43f5-a9e5-7039eb30eb3c'
 const id2 = '5ceb78d4-1f0f-4680-993e-b0835e994751'
@@ -13,16 +13,16 @@ export const defaultTodos = [
 ];
 
 export const defaultTodosSecondVersion = [
-    { id: id1, title: 'Todo 1', done: true, type: 'usual' },
-    { id: id2, title: 'Todo 2', done: false, type: 'usual' },
-    { id: id3, title: 'Todo 3', done: true, type: 'usual' },
+    { id: uuidv4(), title: 'Todo 1', done: true, type: 'usual' },
+    { id: uuidv4(), title: 'Todo 2', done: false, type: 'usual' },
+    { id: uuidv4(), title: 'Todo 3', done: true, type: 'usual' },
 
-    { id: id1, title: 'Todo 1', done: false, type: 'clearOnly' },
-    { id: id2, title: 'Todo 2', done: false, type: 'clearOnly' },
-    { id: id3, title: 'Todo 3', done: false, type: 'clearOnly' },
+    { id: uuidv4(), title: 'Todo 1', done: false, type: 'clearOnly' },
+    { id: uuidv4(), title: 'Todo 2', done: false, type: 'clearOnly' },
+    { id: uuidv4(), title: 'Todo 3', done: false, type: 'clearOnly' },
 
-    { id: id1, title: 'Todo 1', done: false, type: 'archiveOnly' },
-    { id: id2, title: 'Todo 2', done: false, type: 'archiveOnly' },
-    { id: id3, title: 'Todo 3', done: false, type: 'archiveOnly' },
+    { id: uuidv4(), title: 'Todo 1', done: false, type: 'archiveOnly' },
+    { id: uuidv4(), title: 'Todo 2', done: false, type: 'archiveOnly' },
+    { id: uuidv4(), title: 'Todo 3', done: false, type: 'archiveOnly' },
 
 ];
